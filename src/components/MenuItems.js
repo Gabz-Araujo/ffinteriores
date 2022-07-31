@@ -2,6 +2,7 @@ import { Close } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import "../index.css";
 import { motion } from "framer-motion";
+import CtaButton from "./CtaButton";
 
 const variants = {
   open: { opacity: 1, x: 0 },
@@ -20,24 +21,25 @@ function MenuItems({ showMenu, active }) {
       }
     >
       <Close className="scale-150 cursor-pointer m-4" onClick={showMenu} />
-      <li className="hover:text-white hover:font-bold">
-        <Link to="/">Inicio</Link>
-      </li>
-      <li className="hover:text-white hover:font-bold">
-        <Link to="/">Servicos</Link>
-      </li>
-      <li className="hover:text-white hover:font-bold">
-        <Link to="/">Portfolio</Link>
-      </li>
-      <li className="hover:text-white hover:font-bold">
-        <Link to="/">Sobre</Link>
-      </li>
-      <li className="hover:text-white hover:font-bold">
-        <Link to="/">Contato</Link>
-      </li>
-      <button className="border my-5 border-yellow-300 bg-yellow-400 rounded-xl px-4 py-1 text-white font-bold hover:bg-yellow-200 uppercase transform transition duration-400">
-        Peça seu orçamento!
-      </button>
+
+      {[
+        ["Inicio", "/"],
+        ["Serviços", "/servicos"],
+        ["Portfolio", "/portfolio"],
+        ["Sobre", "/sobre"],
+        ["Contato", "/contato"],
+      ].map(([text, link]) => (
+        <motion.li
+          whileHover={{ scale: 1.1, originX: 0, color: "white" }}
+          whileTap={{ scale: 0.9, color: "white" }}
+          key={text}
+          className="hover:font-bold"
+        >
+          <Link to={link}>{text}</Link>
+        </motion.li>
+      ))}
+      <CtaButton />
+      
     </motion.ul>
   );
 }

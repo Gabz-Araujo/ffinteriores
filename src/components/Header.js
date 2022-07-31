@@ -16,14 +16,11 @@ function Header() {
 
   return (
     <>
-      <nav className="sticky top-0 flex flex-wrap w-full bg-white shadow">
+      <nav className="sticky top-0 flex flex-wrap w-full">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div>
-            <img
-              className="transform transition duration-500 hover:scale-110"
-              src={logo}
-              alt="Navbar"
-            />
+            <motion.img 
+            whileHover={{ scale: 1.1 }} src={logo} alt="Navbar" />
           </div>
           <motion.div
             className="absolute right-5 md:hidden"
@@ -33,7 +30,7 @@ function Header() {
               className={
                 active
                   ? "text-white"
-                  : "cursor-pointer transition duration-500 click:rotate-180"
+                  : "cursor-pointer"
               }
               onClick={showMenu}
             />
@@ -47,12 +44,14 @@ function Header() {
                 ["Sobre", "/sobre"],
                 ["Contato", "/contato"],
               ].map(([text, link]) => (
-                <li
+                <motion.li
+                  whileHover={{ scale: 1.1, originX: 0 }}
                   key={text}
+                  whileTap={{ scale: 0.9 }}
                   className="hover:text-yellow-500 active:text-yellow-300"
                 >
                   <Link to={link}>{text}</Link>
-                </li>
+                </motion.li>
               ))}
 
               <CtaButton />

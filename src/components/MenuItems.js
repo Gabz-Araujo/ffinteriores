@@ -35,6 +35,9 @@ function MenuItems({ showMenu, active }) {
       <li className="hover:text-white hover:font-bold">
         <Link to="/">Contato</Link>
       </li>
+      <button className="border my-5 border-yellow-300 bg-yellow-400 rounded-xl px-4 py-1 text-white font-bold hover:bg-yellow-200 uppercase transform transition duration-400">
+        Peça seu orçamento!
+      </button>
     </motion.ul>
   );
 }

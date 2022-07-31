@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import logo from "../assets/img/logo_nav.png";
-import "../index.css";
 import { Link } from "react-router-dom";
-import MenuItems from "./MenuItems";
 import { MenuOutlined } from "@material-ui/icons";
 import { motion } from "framer-motion";
+import logo from "../assets/img/logo_nav.png";
+import "../index.css";
+import CtaButton from "./CtaButton";
+import MenuItems from "./MenuItems";
 
 function Header() {
   const [active, setActive] = useState(false);
@@ -24,34 +25,37 @@ function Header() {
               alt="Navbar"
             />
           </div>
-          <div className="absolute right-5 scale-150 md:hidden">
-            <MenuOutlined className={
-              active
-                ? "text-white transition duration-500"
-                : "cursor-pointer"
-                } 
-                onClick={showMenu} />
-          </div>
+          <motion.div
+            className="absolute right-5 md:hidden"
+            whileHover={{ scale: 1.5 }}
+          >
+            <MenuOutlined
+              className={
+                active
+                  ? "text-white"
+                  : "cursor-pointer transition duration-500 click:rotate-180"
+              }
+              onClick={showMenu}
+            />
+          </motion.div>
           <div>
             <ul className="hidden justify-end md:flex gap-6 p-4">
-              <li className="hover:text-yellow-500 active:text-yellow-300">
-                <Link to="/">Inicio</Link>
-              </li>
-              <li className="hover:text-yellow-500 active:text-yellow-300">
-                <Link to="/">Servicos</Link>
-              </li>
-              <li className="hover:text-yellow-500 active:text-yellow-300">
-                <Link to="/">Portfolio</Link>
-              </li>
-              <li className="hover:text-yellow-500 active:text-yellow-300">
-                <Link to="/">Sobre</Link>
-              </li>
-              <li className="hover:text-yellow-500 active:text-yellow-300">
-                <Link to="/">Contato</Link>
-              </li>
-              <button className="border border-yellow-300 bg-yellow-400 rounded-xl px-6 text-white font-bold hover:bg-yellow-200 uppercase transform transition duration-400">
-                Peça seu orçamento!
-              </button>
+              {[
+                ["Inicio", "/"],
+                ["Serviços", "/servicos"],
+                ["Portfolio", "/portfolio"],
+                ["Sobre", "/sobre"],
+                ["Contato", "/contato"],
+              ].map(([text, link]) => (
+                <li
+                  key={text}
+                  className="hover:text-yellow-500 active:text-yellow-300"
+                >
+                  <Link to={link}>{text}</Link>
+                </li>
+              ))}
+
+              <CtaButton />
             </ul>
           </div>
         </div>

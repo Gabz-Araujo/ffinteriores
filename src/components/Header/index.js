@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { MenuOutlined } from "@material-ui/icons";
 import { motion } from "framer-motion";
 import logo from "../assets/img/logo_nav.png";
-import "../index.css";
-import CtaButton from "./CtaButton";
+import "../styles/index.css";
+import CtaButton from "../CtaButton";
 import MenuItems from "./MenuItems";
 
 function Header() {
@@ -16,22 +16,17 @@ function Header() {
 
   return (
     <>
-      <nav className="sticky top-0 flex flex-wrap w-full">
+      <nav className="fixed top-0 flex flex-wrap w-full z-20">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div>
-            <motion.img 
-            whileHover={{ scale: 1.1 }} src={logo} alt="Navbar" />
+            <motion.img whileHover={{ scale: 1.1 }} src={logo} alt="Navbar" />
           </div>
           <motion.div
             className="absolute right-5 md:hidden"
             whileHover={{ scale: 1.5 }}
           >
             <MenuOutlined
-              className={
-                active
-                  ? "text-white"
-                  : "cursor-pointer"
-              }
+              className={active ? "text-white" : "cursor-pointer"}
               onClick={showMenu}
             />
           </motion.div>
@@ -58,6 +53,7 @@ function Header() {
             </ul>
           </div>
         </div>
+
         <MenuItems showMenu={showMenu} active={active} />
       </nav>
     </>

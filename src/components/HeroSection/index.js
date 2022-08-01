@@ -18,19 +18,19 @@ function HeroSection({ slides }) {
     console.log(currentSlide);
   };
 
-useEffect(() => {
-  const nextSlide = () => {
-    setCurrentSlide(currentSlide => (currentSlide === length - 1 ? 0 : currentSlide + 1))
-  }
+// useEffect(() => {
+//   const nextSlide = () => {
+//     setCurrentSlide(currentSlide => (currentSlide === length - 1 ? 0 : currentSlide + 1))
+//   }
 
-  timeout.currentSlide = setTimeout(nextSlide, 3000)
+//   timeout.currentSlide = setTimeout(nextSlide, 3000)
 
-  return function () {
-    if(timeout.currentSlide) {
-      clearTimeout(timeout.currentSlide)
-    }
-  }
-}, [currentSlide, length])
+//   return function () {
+//     if(timeout.currentSlide) {
+//       clearTimeout(timeout.currentSlide)
+//     }
+//   }
+// }, [currentSlide, length])
 
 
 

@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <Header></Header>
       <HeroSection slides={SliderData} />
+      <HeroSection slides={SliderData} />
     </div>
   );
 }

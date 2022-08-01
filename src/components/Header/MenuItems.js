@@ -9,14 +9,14 @@ const variants = {
   closed: { opacity: 0, x: "-100%" },
 };
 
-function MenuItems({ showMenu, active }) {
+function MenuItems({ showMenu, isOpen }) {
   return (
     <>
       <motion.ul
-        animate={active ? "open" : "closed"}
+        animate={isOpen ? "open" : "closed"}
         variants={variants}
         className={
-          active
+          isOpen
             ? "flex-col fixed inset-0 left-1/3 p-4 justify-end bg-gray-300/90 md:hidden"
             : "hidden"
         }

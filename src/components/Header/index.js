@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { MenuOutlined } from "@material-ui/icons";
 import { motion } from "framer-motion";
 import logo from "../assets/img/logo_nav.png";
+import logo_sm from "../assets/img/logo_nav_sm.png";
 import "../styles/index.css";
 import CtaButton from "../CtaButton";
 import MenuItems from "./MenuItems";
@@ -50,7 +51,8 @@ function Header() {
 
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div>
-            <motion.img whileHover={{ scale: 1.1 }} src={logo} alt="Navbar" />
+            <motion.img className="hidden md:flex" whileHover={{ scale: 1.1 }} src={logo} alt="Navbar" />
+            <motion.img className="flex md:hidden" whileHover={{ scale: 1.1 }} src={logo_sm} alt="Navbar" />
           </div>
           <motion.div
             className="absolute right-5 md:hidden"

@@ -4,13 +4,14 @@ import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import { SliderData } from "./components/data/SliderData";
 import ServicesSection from "./components/ServicesSection";
+import { ServicesData } from "./components/data/ServicesData";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <HeroSection slides={SliderData} />
-      <ServicesSection />
+      <HeroSection />
+      <ServicesSection services={ServicesData} />
 
     </div>
   );

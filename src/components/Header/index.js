@@ -51,8 +51,9 @@ function Header() {
 
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div>
-            <motion.img className="hidden md:flex" whileHover={{ scale: 1.1 }} src={logo} alt="Navbar" />
-            <motion.img className="flex md:hidden" whileHover={{ scale: 1.1 }} src={logo_sm} alt="Navbar" />
+            {/* Mudança do logo quando em dispositivos pequenos */}
+            {/* <motion.img className="hidden md:flex" whileHover={{ scale: 1.1 }} src={logo} alt="Navbar" /> */}
+            <motion.img className="flex" whileHover={{ scale: 1.1 }} src={logo_sm} alt="Navbar" />
           </div>
           <motion.div
             className="absolute right-5 md:hidden"

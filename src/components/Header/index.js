@@ -28,29 +28,26 @@ function Header() {
     setIsOpen(!isOpen);
   };
 
-  //Aqui usamos o useEffect para executar a função mudarCor a cada vez que o usuário rola a página.
+  //Aqui usamos o useState para executar a função mudarCor a cada vez que o usuário rola a página.
 
-  const [backgroundColor, setBackground] = useState(false);
+  // const [backgroundColor, setBackground] = useState(false);
 
-  //Quando o usuário scrolla a página mais que 100 pixels, a função mudarCor é chamada.
+  //Quando o usuário scrolla a página a função mudarCor é executada.
+  //Quando o usuário scrolla mais de 100px a cor do header é alterada.
 
-  const mudarCor = () => {
-    window.scrollY > 100 ? setBackground(true) : setBackground(false);
-  };
+  // const mudarCor = () => {
+  //   window.scrollY > 100 ? setBackground(true) : setBackground(false);
+  // };
 
   //Aqui é a inclusão do escutador de evento para o evento scroll.
 
-  window.addEventListener("scroll", mudarCor);
+  // window.addEventListener("scroll", mudarCor);
 
   return (
     <>
-      <nav
-        className={
-          backgroundColor
-            ? "fixed top-0 flex flex-wrap w-full z-20 bg-white"
-            : "fixed top-0 flex flex-wrap w-full z-20"
-        }
-      >
+      <nav className="fixed top-0 flex flex-wrap w-full z-20 bg-white">
+        {/* // {backgroundColor ? :} */}
+
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div>
             <motion.img whileHover={{ scale: 1.1 }} src={logo} alt="Navbar" />
@@ -66,6 +63,8 @@ function Header() {
           </motion.div>
           <div>
             <ul className="hidden justify-end md:flex gap-6 p-4">
+              {/* Aqui usamos o map para criar os itens de nossa navbar, poderíamos também importar de um arquivo de dados, o que podemos fazer em uma refatoração do código
+              Desta maneira evitamos a repetição de código e coo estamos usando tailwind css a repetição de classes que podem causar confusão */}
               {[
                 ["Inicio", "/"],
                 ["Serviços", "/servicos"],
@@ -77,11 +76,12 @@ function Header() {
                   whileHover={{ scale: 1.1, originX: 0 }}
                   key={text}
                   whileTap={{ scale: 0.9 }}
-                  className={
-                    backgroundColor
-                      ? "text-gray-700 font-bold hover:text-yellow-500 active:text-yellow-300"
-                      : "text-white font-bold hover:text-yellow-500 active:text-yellow-300"
-                  }
+                  className="text-gray-700 font-bold hover:text-yellow-500 active:text-yellow-300"
+                  // {
+                  //   backgroundColor
+                  //     ? "text-gray-700 font-bold hover:text-yellow-500 active:text-yellow-300"
+                  //     : "text-white font-bold hover:text-yellow-500 active:text-yellow-300"
+                  // }
                 >
                   <Link to={link}>{text}</Link>
                 </motion.li>

@@ -9,6 +9,11 @@ const variants = {
   closed: { opacity: 0, x: "-100%" },
 };
 
+
+//Aqui a função recebe o estado do componente como argumento.
+//O estado é um objeto que contém o valor do menu aberto ou fechado.
+//O valor do menu está no estado isOpen.
+
 function MenuItems({ showMenu, isOpen }) {
   return (
     <>

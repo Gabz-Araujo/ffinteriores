@@ -41,21 +41,21 @@ function HeroSection({ slides }) {
 
   //o useEffect é um hook que é chamado quando o componente é montado.
 
-  // useEffect(() => {
-  //   const nextSlide = () => {
-  //     setCurrentSlide((currentSlide) =>
-  //       currentSlide === length - 1 ? 0 : currentSlide + 1
-  //     );
-  //   };
+  useEffect(() => {
+    const nextSlide = () => {
+      setCurrentSlide((currentSlide) =>
+        currentSlide === length - 1 ? 0 : currentSlide + 1
+      );
+    };
 
-  //   timeout.currentSlide = setTimeout(nextSlide, 3000);
+    timeout.currentSlide = setTimeout(nextSlide, 3000);
 
-  //   return function () {
-  //     if (timeout.currentSlide) {
-  //       clearTimeout(timeout.currentSlide);
-  //     }
-  //   };
-  // }, [currentSlide, length]);
+    return function () {
+      if (timeout.currentSlide) {
+        clearTimeout(timeout.currentSlide);
+      }
+    };
+  }, [currentSlide, length]);
 
   return (
     <>

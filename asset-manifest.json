@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ffinteriores/static/css/main.33a65bff.css",
+    "main.js": "/ffinteriores/static/js/main.a1ab54d6.js",
+    "static/media/hero_office.jpg": "/ffinteriores/static/media/hero_office.802800778ac77f4c0836.jpg",
+    "static/media/hero_office2.jpg": "/ffinteriores/static/media/hero_office2.f4b2d379abd7bfd8f3b6.jpg",
+    "index.html": "/ffinteriores/index.html",
+    "main.33a65bff.css.map": "/ffinteriores/static/css/main.33a65bff.css.map",
+    "main.a1ab54d6.js.map": "/ffinteriores/static/js/main.a1ab54d6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.33a65bff.css",
+    "static/js/main.a1ab54d6.js"
+  ]
+}
